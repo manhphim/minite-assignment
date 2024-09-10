@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# First Non-Repeating Character Finder
 
-## Getting Started
+This project is a Next.js web application that finds the first non-repeating character in a given string.
 
-First, run the development server:
+## How it Works
 
+The main functionality is implemented in the `AppPage` component (`components/app-page.tsx`). Here's how it solves the assignment:
+
+1. **Input Handling**: The app accepts a string input through a form.
+
+2. **Character Finding Algorithm**: The `findFirstNonRepeatingChar` function takes the input string and returns the first non-repeating character:
+   - It uses a Map to count character occurrences.
+   - It then iterates through the string again to find the first character with a count of 1.
+   - If no such character is found, it returns null.
+
+3. **Result Display**: The result (or an error message) is displayed to the user.
+
+4. **Word Saving (Bonus Feature)**: New words are saved in localStorage and displayed in a list.
+
+5. **User Feedback**: Toast notifications provide feedback on successful saves and errors.
+
+## Algorithm Complexity
+
+The `findFirstNonRepeatingChar` function uses an algorithm with a time complexity of **O(n)**, where n is the length of the input string. Here's a breakdown of the algorithm:
+
+1. First Pass: **O(n)**
+   - The function iterates through each character in the string once to count occurrences.
+   - It uses a `Map` to store character counts, which provides **O(1)** lookup and insertion.
+
+2. Second Pass: **O(n)**
+   - The function iterates through the string again to find the first character with a count of 1.
+
+3. Total Time Complexity: **O(n) + O(n) = O(n)**
+   - The two passes through the string result in a linear time complexity.
+
+Space Complexity: **O(k)**, where k is the number of unique characters in the string.
+   - In the worst case, where all characters are unique, k = n, resulting in O(n) space complexity.
+   - However, in practice, k is often much smaller than n, especially for strings using a fixed character set (e.g., ASCII).
+
+## How to Run the Project
+
+1. Clone the repository.
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Run the development server:
+   ```
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Testing
+
+Run the following command to run the tests:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+  npm run test
+  ```
+The tests are written using Jest. Here we only test the logic of the `findFirstNonRepeatingChar` function.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech stacks
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Next.js
+- TypeScript
+- Shadcn UI
+- Tailwind CSS
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `app/page.tsx`: The main page component that renders `AppPage`.
+- `components/app-page.tsx`: The core component containing the application logic.
+- UI components from a custom UI library are used for styling.
+- `components/ui`: Reusable UI components from Shadcn UI.
+- `hooks`: Custom hooks used in the application.
+- `lib`: Utility functions and constants.
