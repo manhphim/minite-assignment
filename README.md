@@ -41,11 +41,12 @@ Space Complexity: **O(k)**, where k is the number of unique characters in the st
 
 1. Clone the repository.
 2. Install dependencies:
-   ```
+   ```bash
    npm install
    ```
+
 3. Run the development server:
-   ```
+   ```bash
    npm run dev
    ```
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
@@ -55,7 +56,7 @@ Space Complexity: **O(k)**, where k is the number of unique characters in the st
 Run the following command to run the tests:
 ```bash
   npm run test
-  ```
+```
 The tests are written using Jest. Here we only test the logic of the `findFirstNonRepeatingChar` function.
 
 ## Tech stacks
